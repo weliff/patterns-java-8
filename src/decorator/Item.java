@@ -19,7 +19,7 @@ public class Item {
 	
 	public int getPrice() {
 		Function<Integer, Integer> itemExtras = Stream.of(this.itemExtras).reduce(Function.identity(), Function::andThen);
-//		Function<Integer, Integer> itemExtras = Stream.of(this.itemExtras).reduce(Function.identity(), (a, b) -> a.andThen(b));
-		return itemExtras.apply(price);
+		Function<Integer, Integer> itemExtras2 = Stream.of(this.itemExtras).reduce(Function.identity(), (a, b) -> a.andThen(b));
+		return itemExtras2.apply(price);
 	}
 }
